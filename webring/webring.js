@@ -5,14 +5,14 @@ it under the terms of the GNU General Public License (GPLv3+) as published by
 the Free Software Foundation. (http://www.gnu.org/licenses/)*/
 
 // get webring data
-fetch("https://loop.graycot.dev/webring.json")
+fetch("./webring.json")
 .then(response => {
    return response.json();
 })
 .then(data => webring(data));
 
 // get sites list
-fetch("https://loop.graycot.dev/sites.json")
+fetch("./sites.json")
 .then(response => {
    return response.json();
 })
