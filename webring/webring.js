@@ -35,7 +35,9 @@ function sites(data) {
 
   var dummy = "https://vaea-v.neocities.org/home/"
   var test = dummy.match(/^(?:https?:\/\/)?(?:[^@\/\n]+@)?(?:www\.)?([^:\/\n]+)/igm, "");
-  console.log(test);
+  var test2 = test[0].match(/([^.\s]+\.[^.\s]+)$/gm)
+
+  console.log(test2);
   //Use regex to strip trailing /example/ on SUB.DOMAIN.TLD before searching sites.json
 
   //find referrer site in member list
