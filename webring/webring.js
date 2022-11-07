@@ -48,6 +48,12 @@ function sites(data) {
     }
   }
 
+
+
+
+
+
+
   // Detect whether visitor clicked the Previous, List, Home, Next, Random, or other link:
   const params = new Proxy(new URLSearchParams(window.location.search), {
   get: (searchParams, prop) => searchParams.get(prop),
@@ -82,13 +88,13 @@ function sites(data) {
       window.location.href = webringHome;
 
   } else if (value == 'test') {
-    console.log('test');
+      console.log('test');
 
   } else {
       //In-case of value == null, find random site in member list
-    let randomIndex = Math.floor(Math.random() * (data.webringSites.length));
-    let randomSiteURL = data.webringSites[randomIndex].siteURL;
-    let randomSiteName = data.webringSites[randomIndex].siteName;
-    window.location.href = randomSiteURL;
+      let randomIndex = Math.floor(Math.random() * (data.webringSites.length));
+      let randomSiteURL = data.webringSites[randomIndex].siteURL;
+      let randomSiteName = data.webringSites[randomIndex].siteName;
+      window.location.href = randomSiteURL;
   }
 };
