@@ -59,7 +59,7 @@ function sites(data) {
   if (value == 'prev') {
       //find previous site in member list
       let previousIndex;
-      if (referrerIndex != null) {
+      if (referrerIndex !== null) {
         previousIndex = (referrerIndex-1 < 0) ? data.webringSites.length-1 : referrerIndex-1;
       } else {
         previousIndex = randomIndex;
@@ -70,7 +70,7 @@ function sites(data) {
   } else if (value == 'next') {
       //find next site in member list
       let nextIndex;
-      if (referrerIndex != null) {
+      if (referrerIndex !== null) {
         nextIndex = (referrerIndex+1 >= data.webringSites.length) ? 0 : referrerIndex+1;
       } else {
         nextIndex = randomIndex;
