@@ -30,7 +30,7 @@ function sites(data) {
 
   // get URL of this member site
   let thisSiteURL = window.location.href;
-  //init to avoid weird errors
+  //init to avoid weird errors.
   let previousIndex;
   let i;
   let previousSiteName
