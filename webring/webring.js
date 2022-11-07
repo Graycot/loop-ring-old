@@ -34,11 +34,11 @@ function sites(data) {
   let thisIndex;
   let i;
   let thisSiteName
-  //find this site in member list
+  //find previous site in member list
   for (i = 0; i < data.webringSites.length; i++) {
-    if (thisSiteURL.startsWith(data.webringSites[i].siteURL)) {
-      thisIndex = i;
-      thisSiteName = data.webringSites[thisIndex].siteName;
+    if (previousSiteURL.startsWith(data.webringSites[i].siteURL)) {
+      previousIndex = i;
+      previousSiteName = data.webringSites[previousIndex].siteName;
       break;
     }
   }
