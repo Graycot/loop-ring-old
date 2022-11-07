@@ -57,14 +57,12 @@ function sites(data) {
 
   // Execute redirect upon Previous, List, Home, Next, Random, or other actions
   if (value == 'prev' && referrerIndex !== undefined) {
-      console.log(referrerIndex);
       //find previous site in member list
       let previousIndex = (referrerIndex-1 < 0) ? data.webringSites.length-1 : referrerIndex-1;
       let previousSiteURL = data.webringSites[previousIndex].siteURL;
       window.location.href = previousSiteURL;
 
   } else if (value == 'next' && referrerIndex !== undefined) {
-      console.log(referrerIndex);
       //find next site in member list
       let nextIndex = (referrerIndex+1 >= data.webringSites.length) ? 0 : referrerIndex+1;
       let nextSiteURL = data.webringSites[nextIndex].siteURL;
@@ -80,7 +78,7 @@ function sites(data) {
       console.log('test');
 
   } else {
-      //In-case of value == null, find random site in member list
+      //In-case of value == undefined or referrerIndex is undefined, find random site in member list
       let randomIndex = Math.floor(Math.random() * (data.webringSites.length));
       let randomSiteURL = data.webringSites[randomIndex].siteURL;
       let randomSiteName = data.webringSites[randomIndex].siteName;
