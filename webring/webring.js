@@ -60,40 +60,20 @@ function sites(data) {
 
   // Previous, List, Home, Next, Random, or other actions
   if (value == 'prev') {
-    console.log('prev');
-      console.log(previousSiteURL);
-      //window.location.href = previousSiteURL;
+      window.location.href = previousSiteURL;
   } else if (value == 'next') {
-    console.log('next');
-      console.log(nextSiteURL);
-      //window.location.href = nextSiteURL;
+      window.location.href = nextSiteURL;
   } else if (value == 'list') {
-    console.log('memberlist');
-      console.log(webringMemberList);
-      //window.location.href = webringMemberList;
+      window.location.href = webringMemberList;
   } else if (value == 'home') {
-    console.log('home');
-      console.log(webringHome);
-      //window.location.href = webringHome;
+      window.location.href = webringHome;
   } else if (value == 'test') {
     console.log('test');
   } else {
-      //find random site in member list
+      //In-case of value == null, find random site in member list
     let randomIndex = Math.floor(Math.random() * (data.webringSites.length));
     let randomSiteURL = data.webringSites[randomIndex].siteURL;
     let randomSiteName = data.webringSites[randomIndex].siteName;
-    console.log('else')
-      console.log(randomSiteURL);
-      //window.location.href = randomSiteURL; //In-case of value == null
+    window.location.href = randomSiteURL;
   }
-
-  console.log(`previousIndex: ${previousIndex}`);
-  console.log(`nextIndex: ${nextIndex}`);
-  console.log(`randomIndex: ${randomIndex}`);
-  console.log(`previousSiteURL: ${previousSiteURL}`);
-  console.log(`nextSiteURL: ${nextSiteURL}`);
-  console.log(`randomSiteURL: ${randomSiteURL}`);
-  console.log(`previousSiteName: ${previousSiteName}`);
-  console.log(`nextSiteName: ${nextSiteName}`);
-  console.log(`randomSiteName: ${randomSiteName}`);
 };
