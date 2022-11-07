@@ -58,18 +58,6 @@ function sites(data) {
     nextIndex = randomIndex;
   }
 
-  //
-
-  console.log(`previousIndex: ${previousIndex}`);
-  console.log(`nextIndex: ${nextIndex}`);
-  console.log(`randomIndex: ${randomIndex}`);
-  console.log(`previousSiteURL: ${previousSiteURL}`);
-  console.log(`nextSiteURL: ${nextSiteURL}`);
-  console.log(`randomSiteURL: ${randomSiteURL}`);
-  console.log(`previousSiteName: ${previousSiteName}`);
-  console.log(`nextSiteName: ${nextSiteName}`);
-  console.log(`randomSiteName: ${randomSiteName}`);
-
   // Previous, List, Home, Next, Random, or other actions
   if (value == 'prev') {
     console.log('prev');
@@ -99,4 +87,13 @@ function sites(data) {
       //window.location.href = randomSiteURL; //In-case of value == null
   }
 
+  console.log(`previousIndex: ${previousIndex}`);
+  console.log(`nextIndex: ${nextIndex}`);
+  console.log(`randomIndex: ${randomIndex}`);
+  console.log(`previousSiteURL: ${previousSiteURL}`);
+  console.log(`nextSiteURL: ${nextSiteURL}`);
+  console.log(`randomSiteURL: ${randomSiteURL}`);
+  console.log(`previousSiteName: ${previousSiteName}`);
+  console.log(`nextSiteName: ${nextSiteName}`);
+  console.log(`randomSiteName: ${randomSiteName}`);
 };
