@@ -34,7 +34,8 @@ function sites(data) {
 
   //find referrer site in member list
   for (i = 0; i < data.webringSites.length; i++) {
-    if (referrerSiteURL.startsWith(data.webringSites[i].siteURL)) {
+    const regex = /^(?:https?:\/\/)?(?:[^@\/\n]+@)?(?:www\.)?([^:\/\n]+)/igm;
+    if (referrerSiteURL.startsWith(data.webringSites[i].siteURL.replace(regex, ""))) {
       var referrerIndex = i;
       var referrerSiteURL = data.webringSites[referrerIndex].siteURL;
       var referrerSiteName = data.webringSites[referrerIndex].siteName;
