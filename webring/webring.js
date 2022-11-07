@@ -35,9 +35,9 @@ function sites(data) {
   //find previous site in member list
   for (i = 0; i < data.webringSites.length; i++) {
     if (previousSiteURL.startsWith(data.webringSites[i].siteURL)) {
-      let previousIndex = i;
-      let previousSiteURL = data.webringSites[previousIndex].siteURL;
-      let previousSiteName = data.webringSites[previousIndex].siteName;
+      var previousIndex = i;
+      var previousSiteURL = data.webringSites[previousIndex].siteURL;
+      var previousSiteName = data.webringSites[previousIndex].siteName;
       break;
     }
   }
