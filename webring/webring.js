@@ -42,11 +42,7 @@ function sites(data) {
       break;
     }
   }
-  //if this site is not in member list, set index to last member of list
-  if (thisIndex == undefined) {
-  thisIndex = data.webringSites.length-1;
-  thisSiteName = 'unknown'
-  }
+
   // find index of site before and after this site. Also compute a random index.
   let previousIndex = (thisIndex-1 < 0) ? data.webringSites.length-1 : thisIndex-1;
   let randomIndex = Math.floor(Math.random() * (data.webringSites.length));
@@ -77,15 +73,15 @@ function sites(data) {
   // Bug diagnostics
 
   console.log(`previousIndex: ${previousIndex}`);
-  console.log(`thisIndex: ${thisIndex}`);
+  //console.log(`thisIndex: ${thisIndex}`);
   console.log(`nextIndex: ${nextIndex}`);
   console.log(`randomIndex: ${randomIndex}`);
   console.log(`previousSiteURL: ${previousSiteURL}`);
-  console.log(`thisSiteURL: ${thisSiteURL}`);
+  //console.log(`thisSiteURL: ${thisSiteURL}`);
   console.log(`nextSiteURL: ${nextSiteURL}`);
   console.log(`randomSiteURL: ${randomSiteURL}`);
   console.log(`previousSiteName: ${previousSiteName}`);
-  console.log(`thisSiteName: ${thisSiteName}`);
+  //console.log(`thisSiteName: ${thisSiteName}`);
   console.log(`nextSiteName: ${nextSiteName}`);
   console.log(`randomSiteName: ${randomSiteName}`);
   console.log(`webringName: ${webringName}`)
