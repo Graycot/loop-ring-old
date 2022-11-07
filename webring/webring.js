@@ -33,7 +33,7 @@ function sites(data) {
   //init to avoid weird errors.
   let previousIndex;
   let i;
-  let previousSiteURL;
+  let previousSiteURL = document.referrer;
   let previousSiteName;
   //find previous site in member list
   for (i = 0; i < data.webringSites.length; i++) {
@@ -48,7 +48,7 @@ function sites(data) {
   // find index of site before and after this site. Also compute a random index.
   // previousIndex = (thisIndex-1 < 0) ? data.webringSites.length-1 : thisIndex-1;
   let randomIndex = Math.floor(Math.random() * (data.webringSites.length));
-  let nextIndex = (thisIndex+1 >= data.webringSites.length) ? 0 : thisIndex+1;
+  let nextIndex = (previousIndex+1 >= data.webringSites.length) ? 0 : previousIndex+1;
   // use the indices calculated above to find the corresponding site URL in the member list
   // let previousSiteURL = data.webringSites[previousIndex].siteURL;
   let randomSiteURL = data.webringSites[randomIndex].siteURL;
@@ -66,7 +66,7 @@ function sites(data) {
   let value = params.action;
 
   // If the site that the user just came from is not part of the webring, this sets the Previous and Next button to Random.
-  if (thisIndex == null) {
+  if (previousIndex == null) {
     previousIndex = randomIndex;
     nextIndex = randomIndex;
   }
