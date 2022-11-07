@@ -36,6 +36,7 @@ function sites(data) {
   var previousSiteName;
   //find previous site in member list
   for (i = 0; i < data.webringSites.length; i++) {
+    console.log(i);
     if (previousSiteURL.startsWith(data.webringSites[i].siteURL)) {
       previousIndex = i;
       previousSiteURL = data.webringSites[previousIndex].siteURL;
