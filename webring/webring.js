@@ -68,6 +68,26 @@ function sites(data) {
     nextIndex = randomIndex;
   }
 
+
+  // Bug diagnostics
+
+  console.log(`previousIndex: ${previousIndex}`);
+  console.log(`thisIndex: ${thisIndex}`);
+  console.log(`nextIndex: ${nextIndex}`);
+  console.log(`randomIndex: ${randomIndex}`);
+  console.log(`previousSiteURL: ${previousSiteURL}`);
+  console.log(`thisSiteURL: ${thisSiteURL}`);
+  console.log(`nextSiteURL: ${nextSiteURL}`);
+  console.log(`randomSiteURL: ${randomSiteURL}`);
+  console.log(`previousSiteName: ${previousSiteName}`);
+  console.log(`thisSiteName: ${thisSiteName}`);
+  console.log(`nextSiteName: ${nextSiteName}`);
+  console.log(`randomSiteName: ${randomSiteName}`);
+  console.log(`webringName: ${webringName}`)
+  console.log(`webringID: ${webringID}`)
+  console.log(`webringHome: ${webringHome}`)
+  console.log(`webringMemberList: ${webringMemberList}`)
+
   // Previous, List, Home, Next, Random, or other actions
   if (value == 'prev') {
     console.log('prev');
