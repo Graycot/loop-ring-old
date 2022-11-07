@@ -29,20 +29,26 @@ function webring(data) {
 function sites(data) {
 
   // get URL of previous member site
-  var previousSiteURL = document.referrer;
+  var referrerSiteURL = document.referrer;
   //TODO Use regex to strip trailing /example/ on SUB.DOMAIN.TLD before searching sites.json
 
-  //find previous site in member list
+  //find referrer site in member list
   for (i = 0; i < data.webringSites.length; i++) {
-    if (previousSiteURL.startsWith(data.webringSites[i].siteURL)) {
-      var previousIndex = i;
-      var previousSiteURL = data.webringSites[previousIndex].siteURL;
-      var previousSiteName = data.webringSites[previousIndex].siteName;
+    if (referrerSiteURL.startsWith(data.webringSites[i].siteURL)) {
+      var referrerIndex = i;
+      var referrerSiteURL = data.webringSites[referrerIndex].siteURL;
+      var referrerSiteName = data.webringSites[referrerIndex].siteName;
       break;
     }
   }
+
+  //find previous site in member list
+  let previousIndex = (referrerIndex-1 < 0) ? data.webringSites.length-1 : referrerIndex-1;
+  let previousSiteURL = data.webringSites[previousIndex].siteURL;
+  let previousSiteName = data.webringSites[previousIndex].siteName;
+
   //find next site in member list
-  let nextIndex = (previousIndex+1 >= data.webringSites.length) ? 0 : previousIndex+1;
+  let nextIndex = (referrerIndex+1 >= data.webringSites.length) ? 0 : referrerIndex+1;
   let nextSiteURL = data.webringSites[nextIndex].siteURL;
   let nextSiteName = data.webringSites[nextIndex].siteName;
 
@@ -53,7 +59,7 @@ function sites(data) {
   let value = params.action;
 
   // If the site that the user just came from is not part of the webring, set the Previous and Next values to Random.
-  if (previousIndex == null) {
+  if (referrerIndex == null) {
     previousIndex = randomIndex;
     nextIndex = randomIndex;
   }
