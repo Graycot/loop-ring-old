@@ -66,7 +66,8 @@ function sites(data) {
       //let previousIndex = (referrerIndex-1 < 0) ? data.webringSites.length-1 : referrerIndex-1;
       //if (referrerIndex == null) {previousIndex = randomIndex;}
 
-      let previousIndex = (referrerIndex == null) ? (previousIndex = randomIndex) : (previousIndex = (referrerIndex-1 < 0) ? data.webringSites.length-1 : referrerIndex-1);
+      let previousIndex;
+      (referrerIndex == null) ? (previousIndex = randomIndex) : (previousIndex = (referrerIndex-1 < 0) ? data.webringSites.length-1 : referrerIndex-1);
 
 
       let previousSiteURL = data.webringSites[previousIndex].siteURL;
