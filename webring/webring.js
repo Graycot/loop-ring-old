@@ -48,7 +48,8 @@ function sites(data) {
   // find index of site before and after this site. Also compute a random index.
   // previousIndex = (thisIndex-1 < 0) ? data.webringSites.length-1 : thisIndex-1;
   let randomIndex = Math.floor(Math.random() * (data.webringSites.length));
-  let nextIndex = (previousIndex+1 >= data.webringSites.length) ? 0 : previousIndex+1;
+  let nextIndex = previousIndex+1;
+  //let nextIndex = (previousIndex+1 >= data.webringSites.length) ? 0 : previousIndex+1;
   // use the indices calculated above to find the corresponding site URL in the member list
   // let previousSiteURL = data.webringSites[previousIndex].siteURL;
   let randomSiteURL = data.webringSites[randomIndex].siteURL;
