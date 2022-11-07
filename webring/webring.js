@@ -70,21 +70,27 @@ function sites(data) {
 
   // Previous, List, Home, Next, Random, or other actions
   if (value == 'prev') {
+    console.log('prev');
       console.log(previousSiteURL);
       //window.location.href = previousSiteURL;
   } else if (value == 'next') {
+    console.log('next');
       console.log(nextSiteURL);
       //window.location.href = nextSiteURL;
   } else if (value == 'list') {
+    console.log('memberlist');
       console.log(webringMemberList);
       //window.location.href = webringMemberList;
   } else if (value == 'home') {
+    console.log('home');
       console.log(webringHome);
       //window.location.href = webringHome;
   } else if (value == 'rand') {
+    console.log('rand');
       console.log(randomSiteURL);
       //window.location.href = randomSiteURL;
   } else {
+    console.log('else')
       console.log(randomSiteURL);
       //window.location.href = randomSiteURL; //In-case of value == null
   }
