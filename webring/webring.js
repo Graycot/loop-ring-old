@@ -56,25 +56,15 @@ function sites(data) {
   // If the referrer site is not part of the webring, set the previous and next values to random.
 
   // Execute redirect upon Previous, List, Home, Next, Random, or other actions
-  if (value == 'prev') {
+  if (value == 'prev' && referrerIndex !== null) {
       //find previous site in member list
-      let previousIndex;
-      if (referrerIndex == null) {
-        previousIndex = randomIndex;
-      } else {
-        previousIndex = (referrerIndex-1 < 0) ? data.webringSites.length-1 : referrerIndex-1;
-      }
+      let previousIndex = (referrerIndex-1 < 0) ? data.webringSites.length-1 : referrerIndex-1;
       let previousSiteURL = data.webringSites[previousIndex].siteURL;
       window.location.href = previousSiteURL;
 
-  } else if (value == 'next') {
+  } else if (value == 'next'  && referrerIndex !== null) {
       //find next site in member list
-      let nextIndex;
-      if (referrerIndex == null) {
-        nextIndex = randomIndex;
-      } else {
-        nextIndex = (referrerIndex+1 >= data.webringSites.length) ? 0 : referrerIndex+1;
-      }
+      let nextIndex = (referrerIndex+1 >= data.webringSites.length) ? 0 : referrerIndex+1;
       let nextSiteURL = data.webringSites[nextIndex].siteURL;
       window.location.href = nextSiteURL;
 
