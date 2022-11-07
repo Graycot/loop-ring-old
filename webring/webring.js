@@ -40,6 +40,9 @@ function sites(data) {
       previousIndex = i;
       previousSiteURL = data.webringSites[previousIndex].siteURL;
       previousSiteName = data.webringSites[previousIndex].siteName;
+      console.log(`previousIndex: ${previousIndex}`);
+      console.log(`previousSiteURL: ${previousSiteURL}`);
+      console.log(`previousSiteName: ${previousSiteName}`);
       break;
     }
   }
