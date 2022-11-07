@@ -59,10 +59,10 @@ function sites(data) {
   if (value == 'prev') {
       //find previous site in member list
       let previousIndex;
-      if (referrerIndex !== null) {
-        previousIndex = (referrerIndex-1 < 0) ? data.webringSites.length-1 : referrerIndex-1;
-      } else {
+      if (referrerIndex == null) {
         previousIndex = randomIndex;
+      } else {
+        previousIndex = (referrerIndex-1 < 0) ? data.webringSites.length-1 : referrerIndex-1;
       }
       let previousSiteURL = data.webringSites[previousIndex].siteURL;
       window.location.href = previousSiteURL;
@@ -70,10 +70,10 @@ function sites(data) {
   } else if (value == 'next') {
       //find next site in member list
       let nextIndex;
-      if (referrerIndex !== null) {
-        nextIndex = (referrerIndex+1 >= data.webringSites.length) ? 0 : referrerIndex+1;
-      } else {
+      if (referrerIndex == null) {
         nextIndex = randomIndex;
+      } else {
+        nextIndex = (referrerIndex+1 >= data.webringSites.length) ? 0 : referrerIndex+1;
       }
       let nextSiteURL = data.webringSites[nextIndex].siteURL;
       window.location.href = nextSiteURL;
