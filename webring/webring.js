@@ -47,36 +47,34 @@ function sites(data) {
       break;
     }
   }
-
-
-
-
-
-
-
   // Detect whether visitor clicked the Previous, List, Home, Next, Random, or other link:
   const params = new Proxy(new URLSearchParams(window.location.search), {
   get: (searchParams, prop) => searchParams.get(prop),
   });
   let value = params.action;
 
+  // If the referrer site is not part of the webring, set the previous and next values to random.
+
   // Execute redirect upon Previous, List, Home, Next, Random, or other actions
   if (value == 'prev') {
       //find previous site in member list
-      //let previousIndex = (referrerIndex-1 < 0) ? data.webringSites.length-1 : referrerIndex-1;
-      //if (referrerIndex == null) {previousIndex = randomIndex;}
-
       let previousIndex;
-      (referrerIndex == null) ? (previousIndex = randomIndex) : (previousIndex = (referrerIndex-1 < 0) ? data.webringSites.length-1 : referrerIndex-1);
-
-
+      if (referrerIndex != null) {
+        previousIndex = (referrerIndex-1 < 0) ? data.webringSites.length-1 : referrerIndex-1;
+      } else {
+        previousIndex = randomIndex;
+      }
       let previousSiteURL = data.webringSites[previousIndex].siteURL;
       window.location.href = previousSiteURL;
 
   } else if (value == 'next') {
       //find next site in member list
-      let nextIndex = (referrerIndex+1 >= data.webringSites.length) ? 0 : referrerIndex+1;
-      if (referrerIndex == null) {nextIndex = randomIndex;}
+      let nextIndex;
+      if (referrerIndex != null) {
+        nextIndex = (referrerIndex+1 >= data.webringSites.length) ? 0 : referrerIndex+1;
+      } else {
+        nextIndex = randomIndex;
+      }
       let nextSiteURL = data.webringSites[nextIndex].siteURL;
       window.location.href = nextSiteURL;
 
