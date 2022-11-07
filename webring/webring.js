@@ -70,17 +70,23 @@ function sites(data) {
 
   // Previous, List, Home, Next, Random, or other actions
   if (value == 'prev') {
-      window.location.href = previousSiteURL;
+      console.log(previousSiteURL);
+      //window.location.href = previousSiteURL;
   } else if (value == 'next') {
-      window.location.href = nextSiteURL;
+      console.log(nextSiteURL);
+      //window.location.href = nextSiteURL;
   } else if (value == 'list') {
-      window.location.href = webringMemberList;
+      console.log(webringMemberList);
+      //window.location.href = webringMemberList;
   } else if (value == 'home') {
-      window.location.href = webringHome;
+      console.log(webringHome);
+      //window.location.href = webringHome;
   } else if (value == 'rand') {
-      window.location.href = randomSiteURL;
+      console.log(randomSiteURL);
+      //window.location.href = randomSiteURL;
   } else {
-      window.location.href = randomSiteURL; //In-case of value == null
+      console.log(randomSiteURL);
+      //window.location.href = randomSiteURL; //In-case of value == null
   }
 
 };
