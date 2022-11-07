@@ -33,13 +33,7 @@ function sites(data) {
   var referrerURL = document.referrer;
   var referrerURLReplace = referrerURL.replace(/http(s)?(:)?(\/\/)?|(\/\/)?(www\.)?/g, "");
 
-
-  //var dummy = "https://vaea-v.neocities.org/home/"
-  //var test = dummy.match(/^(?:https?:\/\/)?(?:[^@\/\n]+@)?(?:www\.)?([^:\/\n]+)/igm, "");
-  //var test2 = test[0].replace(/http(s)?(:)?(\/\/)?|(\/\/)?(www\.)?/g, "");
-  //console.log(test2);
-
-  //find referrer site in member list
+  // find referrer member site in member list.
   for (i = 0; i < data.webringSites.length; i++) {
     siteURLRaw = data.webringSites[i].siteURL;
     siteURLMatch = siteURLRaw.match(/^(?:https?:\/\/)?(?:[^@\/\n]+@)?(?:www\.)?([^:\/\n]+)/igm, "");
