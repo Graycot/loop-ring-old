@@ -56,6 +56,11 @@ function sites(data) {
   let randomSiteURL = data.webringSites[randomIndex].siteURL;
   let nextSiteURL = data.webringSites[nextIndex].siteURL;
 
+  // use the indices calculated above to find the corresponding site name in the member list
+  let previousSiteName = data.webringSites[previousIndex].siteName;
+  let randomSiteName = data.webringSites[randomIndex].siteName;
+  let nextSiteName = data.webringSites[nextIndex].siteName;
+
   // Detects whether user clicked the Previous, List, Home, Next, Random, or other link:
   const params = new Proxy(new URLSearchParams(window.location.search), {
   get: (searchParams, prop) => searchParams.get(prop),
