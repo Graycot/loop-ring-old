@@ -20,10 +20,10 @@ fetch("./sites.json")
 
 function webring(data) {
   // get webring data webring.json
-  let webringName = data.webringInfo[0].webringName;
-  let webringURL = data.webringInfo[0].webringURL;
-  let webringHome = data.webringInfo[0].webringHome;
-  let webringMemberList = data.webringInfo[0].webringMemberList;
+  var webringName = data.webringInfo[0].webringName;
+  var webringURL = data.webringInfo[0].webringURL;
+  var webringHome = data.webringInfo[0].webringHome;
+  var webringMemberList = data.webringInfo[0].webringMemberList;
 }
 
 function sites(data) {
