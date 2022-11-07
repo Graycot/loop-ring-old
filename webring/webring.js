@@ -33,7 +33,7 @@ function sites(data) {
   //init to avoid weird errors.
   let previousIndex;
   let i;
-  let previousSiteName
+  let previousSiteName;
   //find previous site in member list
   for (i = 0; i < data.webringSites.length; i++) {
     if (previousSiteURL.startsWith(data.webringSites[i].siteURL)) {
