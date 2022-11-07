@@ -34,7 +34,7 @@ function sites(data) {
   console.log(referrerSiteURL);
 
   var dummy = "https://vaea-v.neocities.org/home/"
-  var test = dummy.replace(/^https:\/\/|\/$/g, "");
+  var test = dummy.replace(/^(?:https?:\/\/)?(?:[^@\/\n]+@)?(?:www\.)?([^:\/\n]+)/igm, "");
   console.log(test);
   //Use regex to strip trailing /example/ on SUB.DOMAIN.TLD before searching sites.json
 
