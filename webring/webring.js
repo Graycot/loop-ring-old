@@ -31,7 +31,7 @@ function sites(data) {
   // get URL of referrer member site
 
   var referrerSiteURL = document.referrer;
-
+  console.log(referrerSiteURL);
   //Use regex to strip trailing /example/ on SUB.DOMAIN.TLD before searching sites.json
 
   //find referrer site in member list
