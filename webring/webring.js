@@ -30,13 +30,14 @@ function sites(data) {
 
   // get URL of previous member site
   var previousSiteURL = document.referrer;
+  console.log(previousSiteURL);
   //init to avoid weird errors.
   var previousIndex;
   var i;
   var previousSiteName;
   //find previous site in member list
   for (i = 0; i < data.webringSites.length; i++) {
-    console.log(i);
+    console.log(data.webringSites[i].siteURL);
     if (previousSiteURL.startsWith(data.webringSites[i].siteURL)) {
       previousIndex = i;
       previousSiteURL = data.webringSites[previousIndex].siteURL;
