@@ -30,22 +30,17 @@ function sites(data) {
 
   // get URL of previous member site
   var previousSiteURL = document.referrer;
-  console.log(previousSiteURL);
+  //TODO Use regex to strip trailing /example/ on SUB.DOMAIN.TLD before searching sites.json
   //init to avoid weird errors.
   var previousIndex;
   var i;
   var previousSiteName;
   //find previous site in member list
   for (i = 0; i < data.webringSites.length; i++) {
-    console.log(i);
-    console.log(data.webringSites[i].siteURL);
     if (previousSiteURL.startsWith(data.webringSites[i].siteURL)) {
       previousIndex = i;
       previousSiteURL = data.webringSites[previousIndex].siteURL;
       previousSiteName = data.webringSites[previousIndex].siteName;
-      console.log(`previousIndex: ${previousIndex}`);
-      console.log(`previousSiteURL: ${previousSiteURL}`);
-      console.log(`previousSiteName: ${previousSiteName}`);
       break;
     }
   }
