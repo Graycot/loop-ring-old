@@ -38,6 +38,7 @@ function sites(data) {
   for (i = 0; i < data.webringSites.length; i++) {
     if (previousSiteURL.startsWith(data.webringSites[i].siteURL)) {
       previousIndex = i;
+      previousSiteURL = data.webringSites[previousIndex].siteURL;
       previousSiteName = data.webringSites[previousIndex].siteName;
       break;
     }
