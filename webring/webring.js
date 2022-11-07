@@ -32,7 +32,9 @@ function sites(data) {
 
   var referrerSiteURL = document.referrer;
   console.log(referrerSiteURL);
-  var test = referrerSiteURL.replace(/^https:\/\/|\/$/g, "");
+
+  var dummy = "https://vaea-v.neocities.org/home/"
+  var test = dummy.replace(/^https:\/\/|\/$/g, "");
   console.log(test);
   //Use regex to strip trailing /example/ on SUB.DOMAIN.TLD before searching sites.json
 
