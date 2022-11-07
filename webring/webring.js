@@ -31,65 +31,44 @@ function sites(data) {
   // get URL of previous member site
   var previousSiteURL = document.referrer;
   //TODO Use regex to strip trailing /example/ on SUB.DOMAIN.TLD before searching sites.json
-  //init to avoid weird errors.
-  var previousIndex;
-  var i;
-  var previousSiteName;
+
   //find previous site in member list
   for (i = 0; i < data.webringSites.length; i++) {
     if (previousSiteURL.startsWith(data.webringSites[i].siteURL)) {
-      previousIndex = i;
-      previousSiteURL = data.webringSites[previousIndex].siteURL;
-      previousSiteName = data.webringSites[previousIndex].siteName;
+      let previousIndex = i;
+      let previousSiteURL = data.webringSites[previousIndex].siteURL;
+      let previousSiteName = data.webringSites[previousIndex].siteName;
       break;
     }
   }
-
-  // find index of site before and after this site. Also compute a random index.
-  // previousIndex = (thisIndex-1 < 0) ? data.webringSites.length-1 : thisIndex-1;
-  let randomIndex = Math.floor(Math.random() * (data.webringSites.length));
+  //find next site in member list
   let nextIndex = (previousIndex+1 >= data.webringSites.length) ? 0 : previousIndex+1;
-  // use the indices calculated above to find the corresponding site URL in the member list
-  // let previousSiteURL = data.webringSites[previousIndex].siteURL;
-  let randomSiteURL = data.webringSites[randomIndex].siteURL;
   let nextSiteURL = data.webringSites[nextIndex].siteURL;
-
-  // use the indices calculated above to find the corresponding site name in the member list
-  // let previousSiteName = data.webringSites[previousIndex].siteName;
-  let randomSiteName = data.webringSites[randomIndex].siteName;
   let nextSiteName = data.webringSites[nextIndex].siteName;
 
-  // Detects whether user clicked the Previous, List, Home, Next, Random, or other link:
+  // Detect whether visitor clicked the Previous, List, Home, Next, Random, or other link:
   const params = new Proxy(new URLSearchParams(window.location.search), {
   get: (searchParams, prop) => searchParams.get(prop),
   });
   let value = params.action;
 
-  // If the site that the user just came from is not part of the webring, this sets the Previous and Next button to Random.
+  // If the site that the user just came from is not part of the webring, set the Previous and Next values to Random.
   if (previousIndex == null) {
     previousIndex = randomIndex;
     nextIndex = randomIndex;
   }
 
-
-  // Bug diagnostics
+  //
 
   console.log(`previousIndex: ${previousIndex}`);
-  //console.log(`thisIndex: ${thisIndex}`);
   console.log(`nextIndex: ${nextIndex}`);
   console.log(`randomIndex: ${randomIndex}`);
   console.log(`previousSiteURL: ${previousSiteURL}`);
-  //console.log(`thisSiteURL: ${thisSiteURL}`);
   console.log(`nextSiteURL: ${nextSiteURL}`);
   console.log(`randomSiteURL: ${randomSiteURL}`);
   console.log(`previousSiteName: ${previousSiteName}`);
-  //console.log(`thisSiteName: ${thisSiteName}`);
   console.log(`nextSiteName: ${nextSiteName}`);
   console.log(`randomSiteName: ${randomSiteName}`);
-  console.log(`webringName: ${webringName}`)
-  console.log(`webringID: ${webringID}`)
-  console.log(`webringHome: ${webringHome}`)
-  console.log(`webringMemberList: ${webringMemberList}`)
 
   // Previous, List, Home, Next, Random, or other actions
   if (value == 'prev') {
@@ -108,11 +87,13 @@ function sites(data) {
     console.log('home');
       console.log(webringHome);
       //window.location.href = webringHome;
-  } else if (value == 'rand') {
-    console.log('rand');
-      console.log(randomSiteURL);
-      //window.location.href = randomSiteURL;
+  } else if (value == 'test') {
+    console.log('test');
   } else {
+      //find random site in member list
+    let randomIndex = Math.floor(Math.random() * (data.webringSites.length));
+    let randomSiteURL = data.webringSites[randomIndex].siteURL;
+    let randomSiteName = data.webringSites[randomIndex].siteName;
     console.log('else')
       console.log(randomSiteURL);
       //window.location.href = randomSiteURL; //In-case of value == null
