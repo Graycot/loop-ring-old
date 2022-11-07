@@ -11,7 +11,7 @@ fetch("./webring.json")
 })
 .then(data => webring(data));
 
-// get sites list
+// get member sites list
 fetch("./sites.json")
 .then(response => {
    return response.json();
@@ -27,18 +27,18 @@ function webring(data) {
 }
 
 function sites(data) {
-
-  // get URL of referrer member site.
-
+  // get sub.domain.TLD of referrer member site.
   var referrerURL = document.referrer;
+  // Remove http(s) schemes and www. subdomain from URL.
   var referrerURLReplace = referrerURL.replace(/http(s)?(:)?(\/\/)?|(\/\/)?(www\.)?/g, "");
 
   // find referrer member site in member list.
   for (i = 0; i < data.webringSites.length; i++) {
     siteURLRaw = data.webringSites[i].siteURL;
+    // Chop off everything past the TLD.
     siteURLMatch = siteURLRaw.match(/^(?:https?:\/\/)?(?:[^@\/\n]+@)?(?:www\.)?([^:\/\n]+)/igm, "");
+    // Remove http(s) schemes and www. subdomain from URL.
     siteURLReplace = siteURLMatch[0].replace(/http(s)?(:)?(\/\/)?|(\/\/)?(www\.)?/g, "");
-
 
     if (referrerURLReplace.startsWith(siteURLReplace)) {
       var referrerIndex = i;
@@ -48,39 +48,42 @@ function sites(data) {
     }
   }
 
-  //find previous site in member list
-  let previousIndex = (referrerIndex-1 < 0) ? data.webringSites.length-1 : referrerIndex-1;
-  let previousSiteURL = data.webringSites[previousIndex].siteURL;
-  let previousSiteName = data.webringSites[previousIndex].siteName;
-
-  //find next site in member list
-  let nextIndex = (referrerIndex+1 >= data.webringSites.length) ? 0 : referrerIndex+1;
-  let nextSiteURL = data.webringSites[nextIndex].siteURL;
-  let nextSiteName = data.webringSites[nextIndex].siteName;
-
   // Detect whether visitor clicked the Previous, List, Home, Next, Random, or other link:
   const params = new Proxy(new URLSearchParams(window.location.search), {
   get: (searchParams, prop) => searchParams.get(prop),
   });
   let value = params.action;
 
-  // If the site that the user just came from is not part of the webring, set the Previous and Next values to Random.
+  // If the referrer site is not part of the webring, set the previous and next values to random.
   if (referrerIndex == null) {
     previousIndex = randomIndex;
     nextIndex = randomIndex;
   }
 
-  // Previous, List, Home, Next, Random, or other actions
+  // Execute redirect upon Previous, List, Home, Next, Random, or other actions
   if (value == 'prev') {
+      //find previous site in member list
+      let previousIndex = (referrerIndex-1 < 0) ? data.webringSites.length-1 : referrerIndex-1;
+      let previousSiteURL = data.webringSites[previousIndex].siteURL;
+      let previousSiteName = data.webringSites[previousIndex].siteName;
       window.location.href = previousSiteURL;
+
   } else if (value == 'next') {
+      //find next site in member list
+      let nextIndex = (referrerIndex+1 >= data.webringSites.length) ? 0 : referrerIndex+1;
+      let nextSiteURL = data.webringSites[nextIndex].siteURL;
+      let nextSiteName = data.webringSites[nextIndex].siteName;
       window.location.href = nextSiteURL;
+
   } else if (value == 'list') {
       window.location.href = webringMemberList;
+
   } else if (value == 'home') {
       window.location.href = webringHome;
+
   } else if (value == 'test') {
     console.log('test');
+
   } else {
       //In-case of value == null, find random site in member list
     let randomIndex = Math.floor(Math.random() * (data.webringSites.length));
