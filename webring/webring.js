@@ -31,15 +31,12 @@ function sites(data) {
   // get URL of referrer member site
 
   var referrerSiteURL = document.referrer;
-  var siteDomain;
+
   //Use regex to strip trailing /example/ on SUB.DOMAIN.TLD before searching sites.json
 
   //find referrer site in member list
   for (i = 0; i < data.webringSites.length; i++) {
-
-    siteDomain = data.webringSites[i].siteURL.replace(regex, "/^(?:https?:\/\/)?(?:[^@\/\n]+@)?(?:www\.)?([^:\/\n]+)/igm")
-
-    if (referrerSiteURL.startsWith(siteDomain)) {
+    if (referrerSiteURL.startsWith(data.webringSites[i].siteURL)) {
       var referrerIndex = i;
       var referrerSiteURL = data.webringSites[referrerIndex].siteURL;
       var referrerSiteName = data.webringSites[referrerIndex].siteName;
