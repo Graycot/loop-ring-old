@@ -32,6 +32,8 @@ function sites(data) {
 
   var referrerSiteURL = document.referrer;
   console.log(referrerSiteURL);
+  var test = referrerSiteURL.match(/^https:\/\/|\/$/g);
+  console.log(test);
   //Use regex to strip trailing /example/ on SUB.DOMAIN.TLD before searching sites.json
 
   //find referrer site in member list
