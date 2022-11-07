@@ -39,7 +39,7 @@ function sites(data) {
 
     var siteDomain = data.webringSites[i].siteURL.replace(regex, "")
 
-    console.log(referrerDomain);
+    console.log(referrerSiteURL);
     console.log(siteDomain);
 
     if (referrerSiteURL.startsWith(siteDomain)) {
