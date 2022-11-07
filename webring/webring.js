@@ -28,12 +28,11 @@ function webring(data) {
 
 function sites(data) {
 
-  // get URL of this member site
-  let thisSiteURL = window.location.href;
+  // get URL of previous member site
+  var previousSiteURL = document.referrer;
   //init to avoid weird errors.
   var previousIndex;
   var i;
-  var previousSiteURL = document.referrer;
   var previousSiteName;
   //find previous site in member list
   for (i = 0; i < data.webringSites.length; i++) {
