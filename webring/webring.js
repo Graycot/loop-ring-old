@@ -59,7 +59,7 @@ function sites(data) {
 
     // execute using webring data
     function webring(data) {
-      // get webring data webring.json
+      // get webring data from webring.json
       var webringHome = data.webringInfo[0].webringHome;
       var webringMemberList = data.webringInfo[0].webringMemberList;
 
